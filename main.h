@@ -8,8 +8,8 @@
 
 int _writechar(char c);
 int _puts(char *str);
-int printOther(int num, char type);
 int printInt(int num);
+int printOther(int num, char type);
 int printBinary(unsigned int num);
 int _printf(const char *format, ...);
 
