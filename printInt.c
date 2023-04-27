@@ -1,37 +1,39 @@
 #include "main.h"
 
 /**
-  * printInt - prints ints
-  * @num: number parameter
+  * printInt - print integers
+  * @num: number
+  * @n: param 2
   * Return: count
   */
 
-int printInt(int num)
+int printInt(int num, unsigned int n)
 {
 	int count = 0;
 	unsigned int a, b, c, d, f;
 
+	if (num == '\0')
+	{
+		return (_writechar('0'));
+	}
 	if (num < 0)
 	{
-		_writechar('-');
+		count += _writechar('-');
 		num = num * -1;
-		count++;
 	}
 	b = num;
 	c = 1;
-	for (a = 1; b > 9; a++)
+	for (a = 1; b > (n - 1); a++)
 	{
-		b = b / 10;
-		c = c * 10;
+		b = b / n;
+		c = c * n;
 	}
 	for (f = 1; f <= a; f++)
 	{
 		d = num / c;
 		num = num % c;
-		c = c / 10;
-		_writechar(d + '0');
-		count++;
+		c = c / n;
+		count += _writechar(d + '0');
 	}
-
 	return (count);
 }
