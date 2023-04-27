@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == 'X' || *format == 'x' || *format == 'o' || *format == 'b')
-				count += printnum((va_arg(args, int)), *format);
+				count += printOther((va_arg(args, int)), *format);
 			else if (*format == 'i' || *format  == 'd' || *format == 'u')
 				if (*format == 'u' && va_arg(args, int) < 0)
 					count += printInt(-(va_arg(args, int)), 10);
