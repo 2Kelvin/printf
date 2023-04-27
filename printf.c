@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (*format == 'X' || *format == 'x' || *format == 'o' || *format == 'b')
+			if (*format == 'X' || *format == 'x' || *format == 'o')
 				count += printOther((va_arg(args, int)), *format);
 			else if (*format == 'i' || *format  == 'd' || *format == 'u')
 				if (*format == 'u' && va_arg(args, int) < 0)
@@ -33,6 +33,8 @@ int _printf(const char *format, ...)
 				count += _puts(va_arg(args, char*));
 			else if (*format == '%')
 				count += _writechar('%');
+			else if (*format == 'b')
+				count += printBinary(va_arg(args, unsigned int));
 			else
 			{
 				count +=  _writechar('%');
